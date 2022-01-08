@@ -20,7 +20,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
-         metadata-complete="true">
+         metadata-complete="false">
 
     <display-name>Welcome to Tomcat</display-name>
     <description>
@@ -36,6 +36,15 @@
         <servlet-name>HelloWorld</servlet-name>
         <url-pattern>/Helloworld</url-pattern>
     </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>GetMethod</servlet-name>-->
+<!--        <servlet-class>today.sumu.form.GetMethod</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>GetMethod</servlet-name>-->
+<!--        <url-pattern>/getMethod</url-pattern>-->
+<!--    </servlet-mapping>-->
+    
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
