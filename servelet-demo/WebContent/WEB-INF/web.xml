@@ -26,6 +26,36 @@
     <description>
         Welcome to Tomcat
     </description>
+
+<!--    Filter-->
+    <filter>
+        <filter-name>FilterConfig</filter-name>
+        <filter-class>today.sumu.filter.FilterConfig</filter-class>
+        <init-param>
+            <param-name>test</param-name>
+            <param-value>拦截器</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterConfig</filter-name>
+<!--        拦截所有的链接-->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>FilterHeader</filter-name>
+        <filter-class>today.sumu.filter.FilterHeader</filter-class>
+        <init-param>
+            <param-name>header</param-name>
+            <param-value>拦截所有header相关的请求</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterHeader</filter-name>
+        <!--        拦截所有的链接-->
+        <url-pattern>/getRequestHeaderInfo</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <!-- 类名 -->
         <servlet-name>HelloWorld</servlet-name>
@@ -44,7 +74,24 @@
 <!--        <servlet-name>GetMethod</servlet-name>-->
 <!--        <url-pattern>/getMethod</url-pattern>-->
 <!--    </servlet-mapping>-->
-    
+<!-- Exception Handler-->
+    <servlet>
+        <servlet-name>ErrorHandler</servlet-name>
+        <servlet-class>today.sumu.exception.ErrorHandler</servlet-class>
+    </servlet>
+    <!-- servlet mappings -->
+    <servlet-mapping>
+        <servlet-name>ErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
